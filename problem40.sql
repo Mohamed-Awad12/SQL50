@@ -6,7 +6,7 @@ with daily_total as (
 ),
 
 moving_avg as (
-    select a.visited_on, sum(b.amount) AS amount,round(sum(b.amount) / 7, 2) AS average_amount
+    select a.visited_on, sum(b.amount) as amount,round(sum(b.amount) / 7, 2) as average_amount
     from daily_total a
     join daily_total b 
     on b.visited_on between date_sub(a.visited_on, interval 6 day) and a.visited_on
